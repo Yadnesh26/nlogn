@@ -1,0 +1,13 @@
+{
+  "id": "monotonic-stack-01",
+  "slug": "daily-temperatures",
+  "language": "python",
+  "category": "monotonic_stack_amortized",
+  "trap": "Inner while loop looks quadratic; each index is pushed and popped at most once.",
+  "ground_truth": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code": "class Solution:\n    def dailyTemperatures(self, temps):\n        answer = [0] * len(temps)\n        stack = []\n        for i, t in enumerate(temps):\n            while stack and temps[stack[-1]] < t:\n                j = stack.pop()\n                answer[j] = i - j\n            stack.append(i)\n        return answer\n",
+  "labeled_by": "claude"
+}

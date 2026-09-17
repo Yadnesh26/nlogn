@@ -1,0 +1,13 @@
+{
+  "id": "sorting-hidden-02",
+  "slug": "merge-intervals",
+  "language": "javascript",
+  "category": "sorting_hidden_in_library_call",
+  "trap": "Merge pass is linear; sort dominates.",
+  "ground_truth": {
+    "time": "O(n log n)",
+    "space": "O(n)"
+  },
+  "code": "var merge = function(intervals) {\n    intervals.sort((a, b) => a[0] - b[0]);\n    const out = [intervals[0]];\n    for (let i = 1; i < intervals.length; i++) {\n        const last = out[out.length - 1];\n        if (intervals[i][0] <= last[1]) {\n            last[1] = Math.max(last[1], intervals[i][1]);\n        } else {\n            out.push(intervals[i]);\n        }\n    }\n    return out;\n};\n",
+  "labeled_by": "claude"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "straightforward-01",
+  "slug": "two-sum",
+  "language": "python",
+  "category": "straightforward_single_nested_loops",
+  "trap": "None — baseline single-pass hash map.",
+  "ground_truth": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code": "class Solution:\n    def twoSum(self, nums, target):\n        seen = {}\n        for i, n in enumerate(nums):\n            if target - n in seen:\n                return [seen[target - n], i]\n            seen[n] = i\n        return []\n",
+  "labeled_by": "claude"
+}

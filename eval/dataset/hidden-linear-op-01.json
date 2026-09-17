@@ -1,0 +1,13 @@
+{
+  "id": "hidden-linear-op-01",
+  "slug": "quadratic-string-build",
+  "language": "java",
+  "category": "hidden_On_ops_in_loops",
+  "trap": "String += in a loop is O(n) per op due to immutability, making the whole loop O(n^2). StringBuilder would be O(n).",
+  "ground_truth": {
+    "time": "O(n^2)",
+    "space": "O(n)"
+  },
+  "code": "class Solution {\n    String buildString(String[] parts) {\n        String result = \"\";\n        for (String p : parts) {\n            result += p;\n        }\n        return result;\n    }\n}\n",
+  "labeled_by": "claude"
+}

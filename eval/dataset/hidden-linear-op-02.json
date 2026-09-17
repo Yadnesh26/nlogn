@@ -1,0 +1,13 @@
+{
+  "id": "hidden-linear-op-02",
+  "slug": "pop-front-in-loop",
+  "language": "python",
+  "category": "hidden_On_ops_in_loops",
+  "trap": "list.pop(0) shifts every remaining element — O(n) per call, O(n^2) overall. deque.popleft() would be O(1).",
+  "ground_truth": {
+    "time": "O(n^2)",
+    "space": "O(1)"
+  },
+  "code": "class Solution:\n    def drain(self, queue):\n        total = 0\n        while queue:\n            total += queue.pop(0)\n        return total\n",
+  "labeled_by": "claude"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "memo-recursion-02",
+  "slug": "climbing-stairs-naive",
+  "language": "javascript",
+  "category": "memoized_recursion",
+  "trap": "No memoization here — genuinely exponential, the negative control for the memoized case above.",
+  "ground_truth": {
+    "time": "O(2^n)",
+    "space": "O(n)"
+  },
+  "code": "var climbStairs = function(n) {\n    if (n <= 2) return n;\n    return climbStairs(n - 1) + climbStairs(n - 2);\n};\n",
+  "labeled_by": "claude"
+}

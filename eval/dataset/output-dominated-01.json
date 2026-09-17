@@ -1,0 +1,18 @@
+{
+  "id": "output-dominated-01",
+  "slug": "subsets",
+  "language": "python",
+  "category": "output_dominated_space",
+  "trap": "Space is dominated by the 2^n output itself, not the working set — the 'exclude the output' convention doesn't apply here since output IS the point.",
+  "ground_truth": {
+    "time": "O(2^n)",
+    "space": "O(2^n)"
+  },
+  "acceptable_alternates": {
+    "time": ["O(n * 2^n)"],
+    "space": ["O(n * 2^n)"]
+  },
+  "code": "class Solution:\n    def subsets(self, nums):\n        result = [[]]\n        for n in nums:\n            result += [curr + [n] for curr in result]\n        return result\n",
+  "labeled_by": "claude",
+  "notes": "O(2^n) is the common textbook simplification (subset count). O(n*2^n) is the more rigorous total including the cost of copying each subset (up to n elements) — both are defensible depending on convention. Config C answered O(n*2^n) here, which is arguably the more precise reading, not a miss."
+}

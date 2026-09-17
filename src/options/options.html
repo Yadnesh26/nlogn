@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>nlogn settings</title>
+    <style>
+      :root {
+        --blue: #0b2e72;
+        --teal: #149b95;
+        --bg: #f7f7f8;
+        --card: #ffffff;
+        --fg: #18181b;
+        --fg-dim: #6b6b74;
+        --border: rgba(0, 0, 0, 0.1);
+        --radius: 10px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #17171a;
+          --card: #1e1e22;
+          --fg: #ededf0;
+          --fg-dim: #a3a3ab;
+          --border: rgba(255, 255, 255, 0.09);
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        font: 14px/1.55 -apple-system, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 60px 20px;
+      }
+      .card {
+        width: 100%;
+        max-width: 420px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 28px;
+        height: fit-content;
+      }
+      .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+      .brand img { height: 30px; width: auto; }
+      h1 { font-size: 17px; margin: 0; font-weight: 600; letter-spacing: 0.01em; }
+      p.lede { color: var(--fg-dim); font-size: 13px; margin: 10px 0 24px; line-height: 1.55; }
+
+      label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--fg-dim);
+        margin: 18px 0 6px;
+      }
+      label:first-of-type { margin-top: 0; }
+      select, input {
+        width: 100%;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        color: var(--fg);
+        border-radius: var(--radius);
+        padding: 10px 12px;
+        font-size: 14px;
+        font-family: inherit;
+        transition: border-color 0.15s;
+      }
+      select:focus, input:focus {
+        outline: none;
+        border-color: var(--teal);
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        margin-top: 22px;
+        padding: 11px 16px;
+        background: linear-gradient(135deg, var(--blue), var(--teal));
+        color: #fff;
+        border: none;
+        border-radius: var(--radius);
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: filter 0.15s;
+      }
+      button:hover { filter: brightness(1.1); }
+      button:disabled { opacity: 0.5; cursor: default; filter: none; }
+
+      #status {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 12px;
+        font-size: 13px;
+        min-height: 18px;
+      }
+      #status.ok { color: var(--teal); }
+      #status.err { color: #ef6767; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="brand">
+        <img src="icons/48.png" alt="" />
+        <h1>nlogn</h1>
+      </div>
+      <p class="lede">Bring your own API key. Your code and key go straight from your browser to your chosen provider — never to us, because we have no servers.</p>
+
+      <label for="provider">Provider</label>
+      <select id="provider">
+        <option value="gemini">Gemini — free, no credit card</option>
+        <option value="deepseek">DeepSeek</option>
+        <option value="openai">OpenAI</option>
+        <option value="anthropic">Anthropic</option>
+      </select>
+
+      <label for="model">Model</label>
+      <input id="model" type="text" />
+
+      <label for="apiKey">API key</label>
+      <input id="apiKey" type="password" autocomplete="off" placeholder="Paste here" />
+
+      <button id="validate">Validate &amp; save</button>
+      <div id="status"></div>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>

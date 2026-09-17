@@ -1,0 +1,13 @@
+{
+  "id": "two-pointer-01",
+  "slug": "trapping-rain-water",
+  "language": "python",
+  "category": "two_pointer_converging",
+  "trap": "Nested-looking while loop; naive nesting analysis says O(n^2).",
+  "ground_truth": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code": "class Solution:\n    def trap(self, height):\n        l, r = 0, len(height) - 1\n        left_max = right_max = 0\n        water = 0\n        while l < r:\n            if height[l] < height[r]:\n                l += 1\n                left_max = max(left_max, height[l])\n                water += left_max - height[l]\n            else:\n                r -= 1\n                right_max = max(right_max, height[r])\n                water += right_max - height[r]\n        return water\n",
+  "labeled_by": "claude"
+}

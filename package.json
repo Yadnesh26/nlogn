@@ -1,0 +1,19 @@
+{
+  "name": "nlogn",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Grounded complexity analysis and failed-submission diagnostics for LeetCode.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch",
+    "eval": "node eval/run.js",
+    "eval:report": "node eval/report.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "sharp": "^0.35.3",
+    "tree-sitter-wasms": "^0.1.13",
+    "web-tree-sitter": "0.20.8"
+  }
+}

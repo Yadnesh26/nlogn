@@ -1,0 +1,13 @@
+{
+  "id": "recursion-depth-02",
+  "slug": "fib-naive-call-stack",
+  "language": "javascript",
+  "category": "recursion_depth_vs_space",
+  "trap": "Exponential call count, but the call *stack* depth at any moment is only O(n) — space and time diverge here.",
+  "ground_truth": {
+    "time": "O(2^n)",
+    "space": "O(n)"
+  },
+  "code": "var fib = function(n) {\n    if (n <= 1) return n;\n    return fib(n - 1) + fib(n - 2);\n};\n",
+  "labeled_by": "claude"
+}

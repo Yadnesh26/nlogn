@@ -1,0 +1,13 @@
+{
+  "id": "graph-traversal-01",
+  "slug": "number-of-islands",
+  "language": "python",
+  "category": "graph_traversal_ambiguous_n",
+  "trap": "n here is ambiguous — it's the grid cell count (rows*cols), not a single linear dimension.",
+  "ground_truth": {
+    "time": "O(m*n)",
+    "space": "O(m*n)"
+  },
+  "code": "class Solution:\n    def numIslands(self, grid):\n        rows, cols = len(grid), len(grid[0])\n        visited = set()\n\n        def bfs(r, c):\n            queue = [(r, c)]\n            visited.add((r, c))\n            while queue:\n                cr, cc = queue.pop()\n                for dr, dc in ((1,0),(-1,0),(0,1),(0,-1)):\n                    nr, nc = cr + dr, cc + dc\n                    if (0 <= nr < rows and 0 <= nc < cols\n                            and (nr, nc) not in visited and grid[nr][nc] == \"1\"):\n                        visited.add((nr, nc))\n                        queue.append((nr, nc))\n\n        count = 0\n        for r in range(rows):\n            for c in range(cols):\n                if grid[r][c] == \"1\" and (r, c) not in visited:\n                    bfs(r, c)\n                    count += 1\n        return count\n",
+  "labeled_by": "claude"
+}

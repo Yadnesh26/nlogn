@@ -1,0 +1,13 @@
+{
+  "id": "sorting-hidden-01",
+  "slug": "contains-duplicate-sort",
+  "language": "python",
+  "category": "sorting_hidden_in_library_call",
+  "trap": "The single scan afterward is O(n); the dominant term is the sort, invisible in loop structure.",
+  "ground_truth": {
+    "time": "O(n log n)",
+    "space": "O(n)"
+  },
+  "code": "class Solution:\n    def containsDuplicate(self, nums):\n        nums = sorted(nums)\n        for i in range(1, len(nums)):\n            if nums[i] == nums[i - 1]:\n                return True\n        return False\n",
+  "labeled_by": "claude"
+}

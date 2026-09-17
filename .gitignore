@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dist.zip
+*.log
+.DS_Store
+.claude/
+
+# Regenerable via `npm run eval` — raw cached API responses, not source.
+eval/cache/

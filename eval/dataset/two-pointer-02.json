@@ -1,0 +1,13 @@
+{
+  "id": "two-pointer-02",
+  "slug": "container-with-most-water",
+  "language": "cpp",
+  "category": "two_pointer_converging",
+  "trap": "while (l < r) looks like it could be quadratic if misread as nested.",
+  "ground_truth": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code": "class Solution {\npublic:\n    int maxArea(vector<int>& height) {\n        int l = 0, r = height.size() - 1, best = 0;\n        while (l < r) {\n            int area = min(height[l], height[r]) * (r - l);\n            best = max(best, area);\n            if (height[l] < height[r]) l++;\n            else r--;\n        }\n        return best;\n    }\n};\n",
+  "labeled_by": "claude"
+}

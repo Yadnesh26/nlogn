@@ -1,0 +1,13 @@
+{
+  "id": "monotonic-stack-02",
+  "slug": "largest-rectangle-in-histogram",
+  "language": "java",
+  "category": "monotonic_stack_amortized",
+  "trap": "Two nested-looking loops (main loop + while pops); amortized linear via the push/pop-once argument.",
+  "ground_truth": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code": "class Solution {\n    int largestRectangleArea(int[] heights) {\n        Deque<Integer> stack = new ArrayDeque<>();\n        int best = 0;\n        for (int i = 0; i <= heights.length; i++) {\n            int h = (i == heights.length) ? 0 : heights[i];\n            while (!stack.isEmpty() && heights[stack.peek()] >= h) {\n                int height = heights[stack.pop()];\n                int width = stack.isEmpty() ? i : i - stack.peek() - 1;\n                best = Math.max(best, height * width);\n            }\n            stack.push(i);\n        }\n        return best;\n    }\n}\n",
+  "labeled_by": "claude"
+}

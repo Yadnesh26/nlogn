@@ -1,0 +1,55 @@
+{
+  "_readme": "Keyed by bare call/method name as it appears in source — this is syntactic matching, not type-aware, so a name like 'sort' matches regardless of receiver type. Ambiguous names are resolved as best-effort (see 'pop' handling in extract.js) or left out entirely rather than guessed at.",
+  "python": {
+    "sorted": { "time": "O(n log n)", "note": "Timsort" },
+    "sort": { "time": "O(n log n)", "note": "Timsort, in place" },
+    "insert": { "time": "O(n)", "note": "shifts elements after the insertion point" },
+    "pop()": { "time": "O(1)", "note": "pop from end" },
+    "pop(i)": { "time": "O(n)", "note": "pop from an index shifts elements; deque.popleft is O(1)" },
+    "append": { "time": "O(1)", "note": "amortized" },
+    "heappush": { "time": "O(log n)" },
+    "heappop": { "time": "O(log n)" },
+    "heapify": { "time": "O(n)" },
+    "bisect_left": { "time": "O(log n)", "note": "search only; insort still shifts, O(n)" },
+    "bisect_right": { "time": "O(log n)" },
+    "insort": { "time": "O(n)", "note": "binary search is O(log n) but the insertion shift is O(n)" },
+    "reverse": { "time": "O(n)" },
+    "join": { "time": "O(n)", "note": "n = total length of joined strings" },
+    "count": { "time": "O(n)" },
+    "index": { "time": "O(n)" }
+  },
+  "java": {
+    "sort": { "time": "O(n log n)", "note": "Arrays.sort: dual-pivot quicksort for primitives, TimSort (stable) for objects" },
+    "contains": { "time": "O(n)", "note": "O(1) avg if called on a HashSet/HashMap instead of a List" },
+    "add": { "time": "O(1)", "note": "amortized for ArrayList append; O(n) if inserting at an index" },
+    "remove": { "time": "O(n)", "note": "ArrayList: shifts elements; O(1) avg for HashSet/HashMap" },
+    "get": { "time": "O(1)", "note": "ArrayList/array; O(n) for LinkedList.get(index)" },
+    "put": { "time": "O(1)", "note": "amortized, HashMap" },
+    "offer": { "time": "O(log n)", "note": "PriorityQueue" },
+    "poll": { "time": "O(log n)", "note": "PriorityQueue" },
+    "indexOf": { "time": "O(n)" }
+  },
+  "cpp": {
+    "sort": { "time": "O(n log n)", "note": "introsort" },
+    "stable_sort": { "time": "O(n log n)" },
+    "push_back": { "time": "O(1)", "note": "amortized" },
+    "pop_back": { "time": "O(1)" },
+    "insert": { "time": "O(n)", "note": "vector: shifts elements; O(log n) for std::map/std::set" },
+    "erase": { "time": "O(n)", "note": "vector: shifts elements; O(log n) for std::map/std::set" },
+    "find": { "time": "O(n)", "note": "std::find on a range; O(log n) member find on std::map/std::set" },
+    "count": { "time": "O(n)", "note": "std::count on a range; O(log n) member count on std::map/std::set" },
+    "push": { "time": "O(log n)", "note": "priority_queue" },
+    "pop": { "time": "O(log n)", "note": "priority_queue" }
+  },
+  "javascript": {
+    "sort": { "time": "O(n log n)" },
+    "push": { "time": "O(1)", "note": "amortized" },
+    "pop": { "time": "O(1)" },
+    "shift": { "time": "O(n)", "note": "reindexes remaining elements" },
+    "unshift": { "time": "O(n)", "note": "reindexes existing elements" },
+    "splice": { "time": "O(n)" },
+    "indexOf": { "time": "O(n)" },
+    "includes": { "time": "O(n)", "note": "O(1) avg for Set/Map" },
+    "find": { "time": "O(n)" }
+  }
+}

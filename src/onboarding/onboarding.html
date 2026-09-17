@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to nlogn</title>
+    <style>
+      :root {
+        --blue: #0b2e72;
+        --teal: #149b95;
+        --bg: #17171a;
+        --card: #1e1e22;
+        --fg: #e6e6e6;
+        --fg-dim: #9a9aa2;
+        --border: rgba(255, 255, 255, 0.1);
+      }
+      * { box-sizing: border-box; }
+      body {
+        font: 15px/1.6 -apple-system, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+      }
+      .wizard {
+        width: 100%;
+        max-width: 480px;
+      }
+      .dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 24px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--border);
+        transition: background 0.2s;
+      }
+      .dot.active { background: var(--teal); }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 32px;
+      }
+      .screen { display: none; }
+      .screen.active { display: block; }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .brand img { height: 36px; width: auto; }
+      .brand span { font-weight: 700; font-size: 20px; letter-spacing: 0.01em; }
+      h1 { font-size: 19px; margin: 0 0 10px; }
+      p { color: var(--fg-dim); margin: 0 0 16px; }
+      .tagline { font-style: italic; color: var(--fg); font-size: 15px; margin-bottom: 20px; }
+      ul.features { list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 10px; }
+      ul.features li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--fg); }
+      ul.features li::before {
+        content: "";
+        display: block;
+        width: 14px;
+        height: 14px;
+        margin-top: 3px;
+        flex-shrink: 0;
+        background-color: var(--teal);
+        mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>') center / contain no-repeat;
+        -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>') center / contain no-repeat;
+      }
+
+      .providers { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+      .provider {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        padding: 14px 16px;
+        cursor: pointer;
+        transition: border-color 0.15s;
+      }
+      .provider:hover { border-color: var(--teal); }
+      .provider.selected { border-color: var(--teal); background: rgba(20, 155, 149, 0.08); }
+      .provider-name { font-weight: 600; }
+      .provider-note { font-size: 12px; color: var(--fg-dim); margin-top: 2px; }
+      .provider-badge {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--teal);
+        border: 1px solid var(--teal);
+        border-radius: 4px;
+        padding: 2px 6px;
+      }
+
+      .key-steps { list-style: decimal; padding-left: 20px; color: var(--fg); margin: 0 0 20px; }
+      .key-steps li { margin-bottom: 8px; font-size: 14px; }
+      a.deep-link {
+        display: inline-block;
+        color: var(--teal);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 13px;
+      }
+      a.deep-link:hover { text-decoration: underline; }
+
+      label { display: block; font-weight: 600; font-size: 13px; margin: 16px 0 6px; }
+      input {
+        width: 100%;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        color: var(--fg);
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 14px;
+      }
+      input:focus { outline: none; border-color: var(--teal); }
+
+      .actions { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; }
+      button {
+        border: none;
+        border-radius: 8px;
+        padding: 10px 18px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--blue), var(--teal));
+        color: #fff;
+      }
+      .btn-primary:hover { filter: brightness(1.12); }
+      .btn-primary:disabled { opacity: 0.45; cursor: default; filter: none; }
+      .btn-ghost {
+        background: none;
+        color: var(--fg-dim);
+      }
+      .btn-ghost:hover { color: var(--fg); }
+
+      .status { font-size: 13px; margin-top: 10px; min-height: 18px; }
+      .status.ok { color: var(--teal); }
+      .status.err { color: #f87171; }
+
+      .demo-toggle {
+        text-align: center;
+        margin-top: 16px;
+      }
+      .demo-toggle a { color: var(--fg-dim); font-size: 13px; cursor: pointer; text-decoration: underline; }
+
+      .demo-result { margin-top: 18px; border-top: 1px solid var(--border); padding-top: 18px; }
+      .demo-side { margin-bottom: 14px; }
+      .demo-side-head { display: flex; align-items: baseline; gap: 8px; }
+      .demo-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--fg-dim); min-width: 40px; }
+      .demo-bigo { font-family: ui-monospace, monospace; font-size: 15px; font-weight: 700; }
+      .demo-badge { font-size: 10px; font-weight: 600; background: rgba(20,155,149,0.2); color: var(--teal); border-radius: 4px; padding: 1px 6px; text-transform: uppercase; }
+      .demo-reason { font-size: 12px; color: var(--fg-dim); margin-top: 4px; border-left: 2px solid rgba(20,155,149,0.4); padding-left: 8px; }
+    </style>
+  </head>
+  <body>
+    <div class="wizard">
+      <div class="dots">
+        <div class="dot active" data-dot="0"></div>
+        <div class="dot" data-dot="1"></div>
+        <div class="dot" data-dot="2"></div>
+        <div class="dot" data-dot="3"></div>
+      </div>
+      <div class="card">
+        <!-- Screen 0: Welcome -->
+        <div class="screen active" data-screen="0">
+          <div class="brand"><img src="icons/48.png" alt="" /><span>nlogn</span></div>
+          <p class="tagline">Know why it failed, not just that it did.</p>
+          <ul class="features">
+            <li>Grounded complexity analysis — Big-O backed by a real parse of your code, not a guess.</li>
+            <li>Failed-submission diagnostics — auto-explains TLE/WA/MLE/RE the moment you submit.</li>
+            <li>Optimality check — know when a passing solution still isn't the best approach.</li>
+          </ul>
+          <div class="demo-toggle"><a id="showDemo0">See example output first →</a></div>
+          <div class="actions">
+            <span></span>
+            <button class="btn-primary" data-next>Get started</button>
+          </div>
+        </div>
+
+        <!-- Screen 1: Provider -->
+        <div class="screen" data-screen="1">
+          <h1>Pick a provider</h1>
+          <p>You bring your own API key — your code goes straight from your browser to them, never through us.</p>
+          <div class="providers">
+            <div class="provider selected" data-provider="gemini">
+              <div><div class="provider-name">Gemini</div><div class="provider-note">Free tier, no credit card required</div></div>
+              <span class="provider-badge">Recommended</span>
+            </div>
+            <div class="provider" data-provider="deepseek">
+              <div><div class="provider-name">DeepSeek</div><div class="provider-note">~20¢/month typical usage</div></div>
+            </div>
+            <div class="provider" data-provider="openai">
+              <div><div class="provider-name">OpenAI</div><div class="provider-note">Pay as you go</div></div>
+            </div>
+            <div class="provider" data-provider="anthropic">
+              <div><div class="provider-name">Anthropic</div><div class="provider-note">Pay as you go</div></div>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn-ghost" data-back>Back</button>
+            <button class="btn-primary" data-next>Next</button>
+          </div>
+        </div>
+
+        <!-- Screen 2: Get key -->
+        <div class="screen" data-screen="2">
+          <h1>Get your <span id="providerNameLabel">Gemini</span> API key</h1>
+          <ol class="key-steps" id="keySteps"></ol>
+          <a class="deep-link" id="deepLink" target="_blank" rel="noopener">Open the key page →</a>
+          <div class="actions">
+            <button class="btn-ghost" data-back>Back</button>
+            <button class="btn-primary" data-next>I have my key</button>
+          </div>
+        </div>
+
+        <!-- Screen 3: Paste & validate -->
+        <div class="screen" data-screen="3">
+          <h1>Paste your key</h1>
+          <label for="model">Model</label>
+          <input id="model" type="text" />
+          <label for="apiKey">API key</label>
+          <input id="apiKey" type="password" autocomplete="off" placeholder="Paste here" />
+          <div class="status" id="status"></div>
+          <div class="demo-toggle"><a id="showDemo3">See example output while you're at it →</a></div>
+          <div class="actions">
+            <button class="btn-ghost" data-back>Back</button>
+            <button class="btn-primary" id="validateBtn">Validate & save</button>
+          </div>
+          <div class="actions" id="doneRow" style="display: none">
+            <span></span>
+            <button class="btn-primary" id="finishBtn">Analyze your first problem →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-result" id="demoResult" style="display: none">
+        <div class="demo-side">
+          <div class="demo-side-head"><span class="demo-label">Time</span><span class="demo-bigo">O(n)</span><span class="demo-badge">high</span></div>
+          <div class="demo-reason">The loop iterates through the array of size n at most once, performing constant-time O(1) dictionary lookups and insertions on average.</div>
+        </div>
+        <div class="demo-side">
+          <div class="demo-side-head"><span class="demo-label">Space</span><span class="demo-bigo">O(n)</span><span class="demo-badge">high</span></div>
+          <div class="demo-reason">The hash map stores up to n elements in the worst case before finding a pair.</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--teal); font-weight: 600;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Optimal approach</div>
+      </div>
+    </div>
+
+    <script src="onboarding.js"></script>
+  </body>
+</html>

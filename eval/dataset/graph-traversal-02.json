@@ -1,0 +1,13 @@
+{
+  "id": "graph-traversal-02",
+  "slug": "course-schedule-topo-sort",
+  "language": "java",
+  "category": "graph_traversal_ambiguous_n",
+  "trap": "n is V+E (vertices and edges), not just the course count.",
+  "ground_truth": {
+    "time": "O(V+E)",
+    "space": "O(V+E)"
+  },
+  "code": "class Solution {\n    boolean canFinish(int numCourses, int[][] prerequisites) {\n        List<List<Integer>> graph = new ArrayList<>();\n        for (int i = 0; i < numCourses; i++) graph.add(new ArrayList<>());\n        int[] indegree = new int[numCourses];\n        for (int[] p : prerequisites) {\n            graph.get(p[1]).add(p[0]);\n            indegree[p[0]]++;\n        }\n        Deque<Integer> queue = new ArrayDeque<>();\n        for (int i = 0; i < numCourses; i++) if (indegree[i] == 0) queue.add(i);\n        int seen = 0;\n        while (!queue.isEmpty()) {\n            int node = queue.poll();\n            seen++;\n            for (int next : graph.get(node)) {\n                if (--indegree[next] == 0) queue.add(next);\n            }\n        }\n        return seen == numCourses;\n    }\n}\n",
+  "labeled_by": "claude"
+}

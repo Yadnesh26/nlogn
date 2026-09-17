@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>nlogn — Privacy Policy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  body { font: 16px/1.6 -apple-system, "Segoe UI", sans-serif; max-width: 680px; margin: 60px auto; padding: 0 20px; color: #1a1a1a; }
+  h1 { font-size: 26px; }
+  h2 { font-size: 18px; margin-top: 36px; }
+  code { background: #f2f2f2; padding: 1px 5px; border-radius: 4px; font-size: 0.9em; }
+  .updated { color: #666; font-size: 14px; }
+  ul { padding-left: 22px; }
+</style>
+</head>
+<body>
+
+<h1>nlogn Privacy Policy</h1>
+<p class="updated">Last updated: <!-- fill in on publish --></p>
+
+<p>nlogn is a browser extension for LeetCode. This policy explains what data it handles and where it goes. The short version: <strong>nlogn has no backend server</strong>. There is nowhere for your code or API key to go except from your own browser directly to the AI provider you choose.</p>
+
+<h2>What nlogn stores</h2>
+<p>The following are stored only in your browser, using <code>chrome.storage.local</code> (not synced to your Google account or any other device):</p>
+<ul>
+  <li>Your chosen AI provider and model</li>
+  <li>Your API key for that provider</li>
+  <li>General settings</li>
+</ul>
+<p>This data never leaves your device except as described below.</p>
+
+<h2>What nlogn sends, and to whom</h2>
+<p>When you click Analyze, or when a LeetCode submission completes, nlogn sends the following directly from your browser to the AI provider you configured (Gemini, DeepSeek, OpenAI, or Anthropic — whichever one you picked):</p>
+<ul>
+  <li>Your solution code for the current problem</li>
+  <li>Structural facts extracted from parsing that code (loop/recursion/library-call information)</li>
+  <li>The problem's title, difficulty, and description, fetched from LeetCode's own GraphQL API using your existing LeetCode session</li>
+  <li>For submission diagnostics: the verdict LeetCode returned (e.g. Wrong Answer, Time Limit Exceeded), including the failing test input and expected/actual output where LeetCode provides them</li>
+</ul>
+<p>This is sent using the API key you provided, under whatever data-handling terms that provider publishes. nlogn does not operate any server that receives, logs, or stores this data — it goes directly from your browser to theirs.</p>
+
+<h2>What nlogn does not do</h2>
+<ul>
+  <li>No account, no sign-up, no analytics, no tracking</li>
+  <li>No access to LeetCode Premium content — nlogn only ever sees what your own LeetCode session can already see</li>
+  <li>No selling or sharing of data, because there is no data collected to sell</li>
+</ul>
+
+<h2>Third-party AI providers</h2>
+<p>When you use nlogn, you are also subject to the privacy policy and terms of whichever AI provider you've configured:</p>
+<ul>
+  <li>Google (Gemini)</li>
+  <li>DeepSeek</li>
+  <li>OpenAI</li>
+  <li>Anthropic</li>
+</ul>
+<p>nlogn has no control over, and is not responsible for, how those providers handle data you send them.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the updated version will be published at this same URL with a new "last updated" date.</p>
+
+<h2>Contact</h2>
+<p><!-- fill in a real contact email or GitHub issues link before publishing --></p>
+
+</body>
+</html>

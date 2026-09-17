@@ -1,0 +1,13 @@
+{
+  "id": "memo-recursion-01",
+  "slug": "fibonacci-memoized",
+  "language": "python",
+  "category": "memoized_recursion",
+  "trap": "Naive recursion analysis says O(2^n); memoization makes each subproblem compute once.",
+  "ground_truth": {
+    "time": "O(n)",
+    "space": "O(n)"
+  },
+  "code": "class Solution:\n    def fib(self, n, memo={}):\n        if n in memo:\n            return memo[n]\n        if n <= 1:\n            return n\n        memo[n] = self.fib(n - 1, memo) + self.fib(n - 2, memo)\n        return memo[n]\n",
+  "labeled_by": "claude"
+}

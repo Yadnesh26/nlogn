@@ -1,0 +1,17 @@
+{
+  "id": "union-find-01",
+  "slug": "union-find-path-compression",
+  "language": "python",
+  "category": "union_find_path_compression",
+  "trap": "Looks like it could be O(n log n) or worse; path compression + union by rank gives near-linear (inverse-Ackermann) amortized cost per operation.",
+  "ground_truth": {
+    "time": "O(n α(n))",
+    "space": "O(n)"
+  },
+  "acceptable_alternates": {
+    "time": ["O(α(n))"]
+  },
+  "code": "class UnionFind:\n    def __init__(self, n):\n        self.parent = list(range(n))\n        self.rank = [0] * n\n\n    def find(self, x):\n        if self.parent[x] != x:\n            self.parent[x] = self.find(self.parent[x])\n        return self.parent[x]\n\n    def union(self, a, b):\n        ra, rb = self.find(a), self.find(b)\n        if ra == rb:\n            return\n        if self.rank[ra] < self.rank[rb]:\n            ra, rb = rb, ra\n        self.parent[rb] = ra\n        if self.rank[ra] == self.rank[rb]:\n            self.rank[ra] += 1\n",
+  "labeled_by": "claude",
+  "notes": "O(n α(n)) is the total cost over n operations; O(α(n)) is the equally-standard per-operation framing. Both configs B and C answered O(α(n)) here — a framing difference, not an error, once the alternate is accepted."
+}

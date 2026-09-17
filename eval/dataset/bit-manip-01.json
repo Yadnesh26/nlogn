@@ -1,0 +1,13 @@
+{
+  "id": "bit-manip-01",
+  "slug": "single-number-xor",
+  "language": "cpp",
+  "category": "bit_manipulation_constant_bounds",
+  "trap": "None — clean linear XOR scan, included as a baseline for the bit-manipulation category.",
+  "ground_truth": {
+    "time": "O(n)",
+    "space": "O(1)"
+  },
+  "code": "class Solution {\npublic:\n    int singleNumber(vector<int>& nums) {\n        int result = 0;\n        for (int n : nums) result ^= n;\n        return result;\n    }\n};\n",
+  "labeled_by": "claude"
+}

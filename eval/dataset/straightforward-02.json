@@ -1,0 +1,13 @@
+{
+  "id": "straightforward-02",
+  "slug": "two-sum-brute-force",
+  "language": "java",
+  "category": "straightforward_single_nested_loops",
+  "trap": "Genuinely quadratic — the nesting is not a false positive here.",
+  "ground_truth": {
+    "time": "O(n^2)",
+    "space": "O(1)"
+  },
+  "code": "class Solution {\n    int[] twoSum(int[] nums, int target) {\n        for (int i = 0; i < nums.length; i++) {\n            for (int j = i + 1; j < nums.length; j++) {\n                if (nums[i] + nums[j] == target) return new int[]{i, j};\n            }\n        }\n        return new int[]{};\n    }\n}\n",
+  "labeled_by": "claude"
+}

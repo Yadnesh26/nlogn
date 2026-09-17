@@ -1,0 +1,3357 @@
+[
+  {
+    "id": "bit-manip-01",
+    "category": "bit_manipulation_constant_bounds",
+    "ground_truth": {
+      "time": "O(n)",
+      "space": "O(1)"
+    },
+    "A": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 92,
+        "candidatesTokenCount": 116,
+        "totalTokenCount": 208,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 92
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(n)$  \n**Space Complexity:** $O(1)$\n\n**Justification:**\n* **Time Complexity:** The code iterates through the `nums` vector of size $n$ exactly once in a single `for` loop, performing a constant-time XOR operation at each step. Thus, the time complexity is linear with respect to the number of elements.\n* **Space Complexity:** It only uses a single integer variable (`result`) to accumulate the XOR sum, requiring a constant amount of extra memory regardless of the input size."
+    },
+    "B": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 422,
+        "candidatesTokenCount": 225,
+        "totalTokenCount": 647,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 422
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "Iterates through the input vector once of size n using a range-based for loop."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Uses a single integer variable to accumulate the XOR sum regardless of input size."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    },
+    "C": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 523,
+        "candidatesTokenCount": 234,
+        "totalTokenCount": 757,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 523
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The loop iterates over each element of the input vector nums exactly once, performing a constant-time XOR operation in each iteration."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Only a single integer variable result is used for computation, requiring constant auxiliary space."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "none"
+        },
+        "issues": []
+      }
+    },
+    "D": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 523,
+        "candidatesTokenCount": 232,
+        "totalTokenCount": 755,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 523
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The loop iterates over each element of the input vector nums exactly once, applying a constant-time bitwise XOR operation."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Only a single integer variable is used for accumulation, requiring constant extra space."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "graph-traversal-01",
+    "category": "graph_traversal_ambiguous_n",
+    "ground_truth": {
+      "time": "O(m*n)",
+      "space": "O(m*n)"
+    },
+    "A": {
+      "time": "O(R \\times C)",
+      "space": "O(R \\times C)",
+      "usage": {
+        "promptTokenCount": 282,
+        "candidatesTokenCount": 134,
+        "totalTokenCount": 416,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 282
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(R \\times C)$  \n**Space Complexity:** $O(R \\times C)$  \n\n**Justification:**\n- **Time Complexity:** Every cell in the grid is visited at most once during the nested loops and at most once inside the BFS traversal. Thus, the total operations scale linearly with the number of cells, where $R$ is rows and $C$ is columns.\n- **Space Complexity:** The `visited` set and the BFS `queue` can store up to every cell in the grid in the worst-case scenario (e.g., a grid entirely filled with `\"1\"`s)."
+    },
+    "B": {
+      "time": "O(r * c)",
+      "space": "O(r * c)",
+      "usage": {
+        "promptTokenCount": 664,
+        "candidatesTokenCount": 302,
+        "totalTokenCount": 966,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 664
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(r * c)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(r * c)",
+              "reason": "Each cell in the grid is visited at most once by the BFS traversal and outer loops, where r is rows and c is columns."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(r * c)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(r * c)",
+              "reason": "The visited set and BFS queue can store up to all cells in the grid in the worst case."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(r * c)",
+          "gap": "None"
+        },
+        "issues": [
+          {
+            "severity": "info",
+            "message": "Using pop() on a list for BFS behaves like a stack (DFS) unless pop(0) is used, though it correctly finds connected components."
+          }
+        ]
+      }
+    },
+    "C": {
+      "time": "O(r * c)",
+      "space": "O(r * c)",
+      "usage": {
+        "promptTokenCount": 1043,
+        "candidatesTokenCount": 293,
+        "totalTokenCount": 1336,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1043
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(r * c)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L3",
+              "bound": "O(r * c)",
+              "reason": "The nested loops iterate over every cell in the grid of size r * c."
+            },
+            {
+              "ref": "L1",
+              "bound": "O(r * c)",
+              "reason": "Each cell is visited and added to the queue and visited set at most once across all BFS traversals."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(r * c)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(r * c)",
+              "reason": "The visited set and the queue can store up to all cells in the grid in the worst case."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(r * c)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    },
+    "D": {
+      "time": "O(rows * cols)",
+      "space": "O(rows * cols)",
+      "usage": {
+        "promptTokenCount": 1043,
+        "candidatesTokenCount": 292,
+        "totalTokenCount": 1335,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1043
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(rows * cols)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L3",
+              "bound": "O(rows * cols)",
+              "reason": "The outer nested loops iterate over every cell in the grid exactly once."
+            },
+            {
+              "ref": "L1",
+              "bound": "O(rows * cols)",
+              "reason": "Each cell is added to and popped from the BFS queue at most once across all traversals."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(rows * cols)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(rows * cols)",
+              "reason": "The visited set and the BFS queue can grow up to the total number of cells in the worst-case scenario."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(rows * cols)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "graph-traversal-02",
+    "category": "graph_traversal_ambiguous_n",
+    "ground_truth": {
+      "time": "O(V+E)",
+      "space": "O(V+E)"
+    },
+    "A": {
+      "time": "O(V + E)",
+      "space": "O(V + E)",
+      "usage": {
+        "promptTokenCount": 282,
+        "candidatesTokenCount": 131,
+        "totalTokenCount": 413,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 282
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(V + E)$\n* $V$ is the number of courses (`numCourses`) and $E$ is the number of prerequisites.\n* Building the adjacency list and indegree array takes $O(V + E)$ time. Each node and edge is processed at most once during the BFS queue traversal.\n\n**Space Complexity:** $O(V + E)$\n* The graph representation (adjacency list) takes $O(V + E)$ space to store all nodes and edges.\n* The indegree array, queue, and recursion/iteration structures take $O(V)$ space."
+    },
+    "B": {
+      "time": "O(V + E)",
+      "space": "O(V + E)",
+      "usage": {
+        "promptTokenCount": 654,
+        "candidatesTokenCount": 264,
+        "totalTokenCount": 918,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 654
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(V + E)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(V + E)",
+              "reason": "The algorithm uses Kahn's algorithm for topological sorting, visiting each vertex V (numCourses) and each edge E (prerequisites) a constant number of times."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(V + E)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(V + E)",
+              "reason": "The graph representation requires space proportional to the number of vertices plus edges, and the queue and indegree array take O(V) space."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(V + E)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    },
+    "C": {
+      "time": "O(V + E)",
+      "space": "O(V + E)",
+      "usage": {
+        "promptTokenCount": 1467,
+        "candidatesTokenCount": 363,
+        "totalTokenCount": 1830,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1467
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(V + E)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(V)",
+              "reason": "Iterates V (numCourses) times to initialize graph."
+            },
+            {
+              "ref": "L2",
+              "bound": "O(E)",
+              "reason": "Iterates over each prerequisite edge E once."
+            },
+            {
+              "ref": "L3",
+              "bound": "O(V)",
+              "reason": "Iterates V times to find initial zero-indegree nodes."
+            },
+            {
+              "ref": "L4",
+              "bound": "O(V + E)",
+              "reason": "Queue processes each vertex once and inner loop visits each edge once."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(V + E)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(V + E)",
+              "reason": "The graph representation stores V vertices and E edges, plus V space for indegree and the queue."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(V + E)",
+          "gap": ""
+        },
+        "issues": []
+      }
+    },
+    "D": {
+      "time": "O(V + E)",
+      "space": "O(V + E)",
+      "usage": {
+        "promptTokenCount": 1467,
+        "candidatesTokenCount": 374,
+        "totalTokenCount": 1841,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1467
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(V + E)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(V)",
+              "reason": "Loop runs numCourses times to initialize adjacency list."
+            },
+            {
+              "ref": "L2",
+              "bound": "O(E)",
+              "reason": "Loop iterates over all elements in prerequisites, adding edges to the graph."
+            },
+            {
+              "ref": "L3",
+              "bound": "O(V)",
+              "reason": "Loop runs numCourses times to populate the initial queue with zero-indegree nodes."
+            },
+            {
+              "ref": "L4",
+              "bound": "O(V + E)",
+              "reason": "Kahn's algorithm visits every vertex once and relaxes every edge once."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(V + E)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(V + E)",
+              "reason": "Space is used for the adjacency list representing the graph, the indegree array, and the queue."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(V + E)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "hidden-linear-op-01",
+    "category": "hidden_On_ops_in_loops",
+    "ground_truth": {
+      "time": "O(n^2)",
+      "space": "O(n)"
+    },
+    "A": {
+      "time": "O(N^2)",
+      "space": "O(N)",
+      "usage": {
+        "promptTokenCount": 91,
+        "candidatesTokenCount": 174,
+        "totalTokenCount": 265,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 91
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(N^2)$ where $N$ is the total number of characters in the resulting string.\n* **Justification:** In Java, Strings are immutable. Using the `+=` operator inside a loop creates a new String object and copies all previous characters plus the new part at each iteration. If there are $k$ parts of average length $m$ (total length $N = k \\times m$), the work done per concatenation grows linearly, resulting in a quadratic sum: $m + 2m + 3m + \\dots + km = O(N^2)$.\n\n**Space Complexity:** $O(N)$\n* **Justification:** The space complexity is determined by the final string of length $N$ stored in memory, as well as the intermediate string objects garbage-collected during the process."
+    },
+    "B": {
+      "time": "O(N^2)",
+      "space": "O(N)",
+      "usage": {
+        "promptTokenCount": 424,
+        "candidatesTokenCount": 293,
+        "totalTokenCount": 717,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 424
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(N^2)",
+          "confidence": "low",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(N^2)",
+              "reason": "String concatenation inside a loop in Java creates a new String object each iteration, leading to quadratic time complexity relative to the total length of the resulting string."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(N)",
+          "confidence": "low",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(N)",
+              "reason": "Temporary string builder or string allocations proportional to the final output string size are created."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(N)",
+          "gap": "Using StringBuilder avoids quadratic allocations from immutable String concatenations."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "String concatenation inside a loop causes quadratic time complexity in Java.",
+            "line": 5
+          }
+        ]
+      }
+    },
+    "C": {
+      "time": "O(N^2)",
+      "space": "O(N)",
+      "usage": {
+        "promptTokenCount": 525,
+        "candidatesTokenCount": 309,
+        "totalTokenCount": 834,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 525
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(N^2)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(N^2)",
+              "reason": "String concatenation inside the loop creates a new string object of increasing length in each iteration, resulting in quadratic time complexity relative to the total length of the parts."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(N)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(N)",
+              "reason": "Stores the accumulated string which grows up to the total size of all parts combined."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(N)",
+          "gap": "Using StringBuilder avoids quadratic time complexity caused by repeated intermediate string allocations."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "String concatenation inside a loop in Java results in O(N^2) time complexity. StringBuilder should be used instead.",
+            "line": 5
+          }
+        ]
+      }
+    },
+    "D": {
+      "time": "O(N^2)",
+      "space": "O(N)",
+      "usage": {
+        "promptTokenCount": 525,
+        "candidatesTokenCount": 299,
+        "totalTokenCount": 824,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 525
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(N^2)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(N^2)",
+              "reason": "String concatenation inside the loop creates a new string object and copies characters on each iteration, leading to quadratic time complexity relative to the total length of the parts."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(N)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(N)",
+              "reason": "Stores the accumulated string which grows proportionally to the total input length."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(N)",
+          "gap": "Using StringBuilder avoids quadratic string copying overhead."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "String concatenation inside a loop leads to O(N^2) complexity due to repeated object creation and copying.",
+            "line": 5
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "hidden-linear-op-02",
+    "category": "hidden_On_ops_in_loops",
+    "ground_truth": {
+      "time": "O(n^2)",
+      "space": "O(1)"
+    },
+    "A": {
+      "time": "O(N^2)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 79,
+        "candidatesTokenCount": 153,
+        "totalTokenCount": 232,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 79
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(N^2)$\n**Space Complexity:** $O(1)$\n\n**Justification:**\n* **Time Complexity:** The `while` loop runs $N$ times (where $N$ is the initial length of the `queue`). Inside the loop, `queue.pop(0)` removes the first element, which requires shifting all remaining elements in the list by one position. This takes $O(N)$ time per operation, resulting in $N \\times O(N) = O(N^2)$ total time.\n* **Space Complexity:** The algorithm uses a constant amount of extra memory (`total`), modifying the input list in place. Thus, the auxiliary space complexity is $O(1)$."
+    },
+    "B": {
+      "time": "O(n^2)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 405,
+        "candidatesTokenCount": 321,
+        "totalTokenCount": 726,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 405
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n^2)",
+          "confidence": "low",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n^2)",
+              "reason": "The while loop runs n times, and queue.pop(0) takes O(n) time per operation due to shifting elements in a Python list."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "low",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Only a constant amount of extra memory is used for the total variable, operating in-place on the input queue."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "Using collections.deque for O(1) pops from the left would reduce the time complexity to linear."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Using pop(0) on a Python list is inefficient for large inputs because it requires shifting all subsequent elements.",
+            "line": 5
+          }
+        ]
+      }
+    },
+    "C": {
+      "time": "O(n^2)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 563,
+        "candidatesTokenCount": 334,
+        "totalTokenCount": 897,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 563
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n^2)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n^2)",
+              "reason": "The while loop runs n times, and inside the loop, queue.pop(0) takes O(n) time due to shifting elements in a Python list."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "The algorithm uses a constant amount of extra memory regardless of input size."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "Using a collections.deque instead of a list allows O(1) popleft operations, reducing the total time complexity to O(n)."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Using pop(0) on a Python list is inefficient (O(n) per call); consider using collections.deque for O(1) pops from the left.",
+            "line": 5
+          }
+        ]
+      }
+    },
+    "D": {
+      "time": "O(n^2)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 563,
+        "candidatesTokenCount": 329,
+        "totalTokenCount": 892,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 563
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(n^2)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n^2)",
+              "reason": "The while loop runs n times, and inside the loop, queue.pop(0) takes O(n) time by shifting all remaining elements."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Only a scalar total variable is used, modifying the input queue in place."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "Using a collections.deque and popleft() would reduce the time complexity from quadratic to linear."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Using pop(0) on a Python list is O(n), resulting in O(n^2) overall time complexity. A collections.deque should be used for O(1) pops.",
+            "line": 5
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "memo-recursion-01",
+    "category": "memoized_recursion",
+    "ground_truth": {
+      "time": "O(n)",
+      "space": "O(n)"
+    },
+    "A": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 120,
+        "candidatesTokenCount": 118,
+        "totalTokenCount": 238,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 120
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(n)$\n**Space Complexity:** $O(n)$\n\n**Justification:**\n* **Time Complexity:** Due to memoization, each Fibonacci number from $0$ to $n$ is computed only once. The function makes a constant number of operations for each value, resulting in a linear time complexity.\n* **Space Complexity:** The space is consumed by the recursion call stack (which goes up to depth $n$) and the `memo` dictionary (which stores $n$ key-value pairs). Both scale linearly with $n$."
+    },
+    "B": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 450,
+        "candidatesTokenCount": 302,
+        "totalTokenCount": 752,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 450
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "Due to memoization, each subproblem from 0 to n is computed exactly once."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The memo dictionary stores n entries, and the recursion depth goes up to n."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n) time, O(n) space for memoized recursion (or O(1) space iteratively)",
+          "gap": "None"
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Using a mutable default argument (memo={}) in Python can cause state retention across multiple function calls, leading to unintended side effects.",
+            "line": 2
+          }
+        ]
+      }
+    },
+    "C": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 584,
+        "candidatesTokenCount": 275,
+        "totalTokenCount": 859,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 584
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The recursion uses memoization, computing each value from 0 to n exactly once."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The memo dictionary stores n results, and the call stack grows up to depth n."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Using a mutable default argument for memoization can lead to unintended state retention across multiple function calls.",
+            "line": 2
+          }
+        ]
+      }
+    },
+    "D": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 584,
+        "candidatesTokenCount": 281,
+        "totalTokenCount": 865,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 584
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "Due to memoization, each subproblem from 0 to n is computed once and takes O(1) time."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The recursion stack goes up to depth n and the memo dictionary stores n entries."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Using a mutable default argument for memoization can lead to unintended state sharing across multiple function calls.",
+            "line": 2
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "memo-recursion-02",
+    "category": "memoized_recursion",
+    "ground_truth": {
+      "time": "O(2^n)",
+      "space": "O(n)"
+    },
+    "A": {
+      "time": "O(2^n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 88,
+        "candidatesTokenCount": 113,
+        "totalTokenCount": 201,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 88
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(2^n)$\n**Space Complexity:** $O(n)$\n\n**Justification:**\n* **Time Complexity:** The function is a naive recursive implementation of the Fibonacci sequence. Each call branches into two recursive calls (`n - 1` and `n - 2`), creating a binary recursion tree of depth $n$ and approximately $2^n$ total operations.\n* **Space Complexity:** The space complexity is determined by the maximum depth of the call stack during recursion, which is at most $n$."
+    },
+    "B": {
+      "time": "O(2^n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 410,
+        "candidatesTokenCount": 299,
+        "totalTokenCount": 709,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 410
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(2^n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(2^n)",
+              "reason": "The recursive implementation computes Fibonacci numbers without memoization, leading to an exponential number of calls."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The maximum depth of the recursive call stack is n."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "The current solution recomputes overlapping subproblems exponentially. Using dynamic programming or iterative state tracking reduces time complexity to linear."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Recursive Fibonacci without memoization results in exponential time complexity and will cause stack overflow or time limits for large n.",
+            "line": 3
+          }
+        ]
+      }
+    },
+    "C": {
+      "time": "O(2^n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 538,
+        "candidatesTokenCount": 310,
+        "totalTokenCount": 848,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 538
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(2^n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(2^n)",
+              "reason": "The function uses naive recursion with a branching factor of 2, leading to an exponential number of calls proportional to the Fibonacci sequence."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The maximum depth of the recursive call stack is n."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n) time and O(1) space using iterative dynamic programming or matrix exponentiation",
+          "gap": "The naive recursive solution recomputes identical subproblems multiple times, resulting in exponential time complexity."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Naive recursion without memoization leads to redundant computations and exponential time complexity.",
+            "line": 3
+          }
+        ]
+      }
+    },
+    "D": {
+      "time": "O(2^n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 538,
+        "candidatesTokenCount": 316,
+        "totalTokenCount": 854,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 538
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(2^n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(2^n)",
+              "reason": "The function uses unmemoized binary recursion with a branching factor of 2, leading to an exponential number of calls proportional to the Fibonacci sequence."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The maximum call stack depth is proportional to n due to linear descent in the recursion tree."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n) time and O(1) space",
+          "gap": "The current solution performs redundant computations resulting in exponential time complexity, which can be avoided using dynamic programming or iterative Fibonacci calculation."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Exponential time complexity due to unmemoized overlapping recursive subproblems.",
+            "line": 3
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "monotonic-stack-01",
+    "category": "monotonic_stack_amortized",
+    "ground_truth": {
+      "time": "O(n)",
+      "space": "O(n)"
+    },
+    "A": {
+      "time": "O(N)",
+      "space": "O(N)",
+      "usage": {
+        "promptTokenCount": 128,
+        "candidatesTokenCount": 126,
+        "totalTokenCount": 254,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 128
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(N)$\n**Space Complexity:** $O(N)$\n\n* **Justification:** \n  * **Time:** Each index is pushed onto and popped from the stack at most once. Therefore, the `while` loop runs at most $N$ times across the entire iteration, resulting in linear time complexity, where $N$ is the length of `temps`.\n  * **Space:** In the worst-case scenario (e.g., strictly decreasing temperatures), the stack will store all $N$ indices. The output array `answer` also takes $N$ space."
+    },
+    "B": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 464,
+        "candidatesTokenCount": 232,
+        "totalTokenCount": 696,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 464
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "Each element is pushed and popped from the stack at most once during the iteration over the input array of size n."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The stack and the answer array each store up to n elements in the worst case."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    },
+    "C": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 745,
+        "candidatesTokenCount": 234,
+        "totalTokenCount": 979,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 745
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The for loop iterates over each element in temps once, and each index is pushed and popped from the stack at most once."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The stack and answer array can store up to n elements in the worst case."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "none"
+        },
+        "issues": []
+      }
+    },
+    "D": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 745,
+        "candidatesTokenCount": 292,
+        "totalTokenCount": 1037,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 745
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The outer for loop iterates through each of the n elements in temps exactly once."
+            },
+            {
+              "ref": "L2",
+              "bound": "O(n)",
+              "reason": "Although nested, each index is pushed onto and popped from the stack at most once across all iterations of the outer loop, resulting in linear total time for the inner while loop."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The stack and answer array both grow up to size n in the worst case."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "monotonic-stack-02",
+    "category": "monotonic_stack_amortized",
+    "ground_truth": {
+      "time": "O(n)",
+      "space": "O(n)"
+    },
+    "A": {
+      "time": "O(N)",
+      "space": "O(N)",
+      "usage": {
+        "promptTokenCount": 206,
+        "candidatesTokenCount": 142,
+        "totalTokenCount": 348,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 206
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(N)$  \n**Space Complexity:** $O(N)$  \n\n**Justification:**\n- **Time Complexity:** Each index is pushed onto the stack at most once and popped at most once. The loop runs $N + 1$ times, and the inner `while` loop processes elements in amortized constant time per element. Thus, the total time is linear with respect to the number of elements $N$ (`heights.length`).\n- **Space Complexity:** In the worst-case (e.g., a strictly increasing array of heights), all indices will be pushed onto the `ArrayDeque` stack, requiring space proportional to $N$."
+    },
+    "B": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 560,
+        "candidatesTokenCount": 231,
+        "totalTokenCount": 791,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 560
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "Each index is pushed and popped from the stack at most once during the iteration."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The stack can store up to n elements in the worst-case scenario (e.g., strictly increasing heights)."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    },
+    "C": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 756,
+        "candidatesTokenCount": 302,
+        "totalTokenCount": 1058,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 756
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The for loop runs n + 1 times, and each index is pushed and popped from the stack at most once."
+            },
+            {
+              "ref": "L2",
+              "bound": "O(n) amortized",
+              "reason": "The while loop inner body executes at most once per element across all iterations of the outer loop because each element is pushed and popped exactly once."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The Deque stack stores at most n indices in the worst-case scenario when heights are sorted in ascending order."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    },
+    "D": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 756,
+        "candidatesTokenCount": 310,
+        "totalTokenCount": 1066,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 756
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The for loop runs n + 1 times, and each index is pushed and popped from the stack at most once."
+            },
+            {
+              "ref": "L2",
+              "bound": "O(1) amortized",
+              "reason": "Although nested inside the for loop, the inner while loop executes a total of at most n times across all iterations of the outer loop because every element is pushed and popped at most once."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The stack stores at most n indices in the worst-case scenario (e.g. monotonically increasing heights)."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "output-dominated-01",
+    "category": "output_dominated_space",
+    "ground_truth": {
+      "time": "O(2^n)",
+      "space": "O(2^n)"
+    },
+    "A": {
+      "time": "O(2^n \\cdot n)",
+      "space": "O(2^n \\cdot n)",
+      "usage": {
+        "promptTokenCount": 87,
+        "candidatesTokenCount": 177,
+        "totalTokenCount": 264,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 87
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(2^n \\cdot n)$  \n**Space Complexity:** $O(2^n \\cdot n)$\n\n**Justification:**\n* **Time Complexity:** For an input list of size $n$, the algorithm generates all $2^n$ subsets. In each of the $n$ iterations, it iterates over the current `result` list and creates new lists by appending an element. Copying elements to form new subsets takes proportional time to the size of the subsets being formed, which averages $O(n)$ elements per subset, resulting in $O(2^n \\cdot n)$ operations.\n* **Space Complexity:** The output list stores all $2^n$ subsets. Since the maximum size of a subset is $n$, storing all subsets requires $O(2^n \\cdot n)$ space."
+    },
+    "B": {
+      "time": "O(2^n)",
+      "space": "O(2^n)",
+      "usage": {
+        "promptTokenCount": 413,
+        "candidatesTokenCount": 289,
+        "totalTokenCount": 702,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 413
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(2^n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(2^n)",
+              "reason": "The algorithm generates all subsets of the input list nums. Since there are 2^n subsets, and each subset takes up to O(n) time to copy and construct, the total time complexity is proportional to the number of subsets produced."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(2^n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(2^n)",
+              "reason": "The output list stores all 2^n subsets, each taking on average O(n) space."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(2^n)",
+          "gap": "None. Generating all subsets inherently requires exponential time and space with respect to the input size n."
+        },
+        "issues": []
+      }
+    },
+    "C": {
+      "time": "O(2^n * n)",
+      "space": "O(2^n * n)",
+      "usage": {
+        "promptTokenCount": 547,
+        "candidatesTokenCount": 321,
+        "totalTokenCount": 868,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 547
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(2^n * n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(2^n * n)",
+              "reason": "The loop runs n times. In each iteration i, the size of result doubles, going from 1, 2, 4, ..., 2^n. Creating the new subsets and copying elements takes time proportional to the number of elements generated, which sum up to 2^n elements of average length n/2."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(2^n * n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(2^n * n)",
+              "reason": "The output contains 2^n subsets, with a total of n * 2^(n-1) elements stored."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(2^n * n)",
+          "gap": "None. Generating all subsets of a set of size n inherently requires exponential time and space."
+        },
+        "issues": []
+      }
+    },
+    "D": {
+      "time": "O(2^n * n)",
+      "space": "O(2^n * n)",
+      "usage": {
+        "promptTokenCount": 547,
+        "candidatesTokenCount": 355,
+        "totalTokenCount": 902,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 547
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(2^n * n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(2^n * n)",
+              "reason": "The outer loop runs n times. In each iteration, the number of elements in result doubles, growing from 1 to 2^n. Copying and creating new lists takes time proportional to the length of the subsets, resulting in a geometric series sum dominated by the final step of O(2^n * n)."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(2^n * n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(2^n * n)",
+              "reason": "There are 2^n subsets generated, with an average length of n/2, requiring space proportional to 2^n * n to store all elements in the output list."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(2^n * n)",
+          "gap": "None. Any algorithm must generate all 2^n subsets, which inherently takes at least O(2^n * n) time and space in the worst case since the output size is of that order."
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "recursion-depth-01",
+    "category": "recursion_depth_vs_space",
+    "ground_truth": {
+      "time": "O(n)",
+      "space": "O(h)"
+    },
+    "A": {
+      "time": "O(N)",
+      "space": "O(N)",
+      "usage": {
+        "promptTokenCount": 92,
+        "candidatesTokenCount": 123,
+        "totalTokenCount": 215,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 92
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(N)$\n**Space Complexity:** $O(N)$\n\n* **Justification:** \n  * **Time:** The algorithm visits every node in the binary tree exactly once, where $N$ is the total number of nodes.\n  * **Space:** The space complexity is determined by the recursion stack. In the worst-case scenario (a completely unbalanced skewed tree), the recursion depth reaches $N$. In the best-case (a balanced tree), it is $O(\\log N)$. Thus, the worst-case space complexity is $O(N)$."
+    },
+    "B": {
+      "time": "O(N)",
+      "space": "O(H)",
+      "usage": {
+        "promptTokenCount": 416,
+        "candidatesTokenCount": 244,
+        "totalTokenCount": 660,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 416
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(N)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(N)",
+              "reason": "The algorithm visits each node in the binary tree exactly once, where N is the total number of nodes."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(H)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(H)",
+              "reason": "The space complexity is determined by the maximum recursion stack depth H, which corresponds to the height of the binary tree."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(N) time and O(H) space",
+          "gap": "none"
+        },
+        "issues": []
+      }
+    },
+    "C": {
+      "time": "O(n)",
+      "space": "O(h)",
+      "usage": {
+        "promptTokenCount": 542,
+        "candidatesTokenCount": 257,
+        "totalTokenCount": 799,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 542
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The function visits every node of the binary tree exactly once, where n is the total number of nodes."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(h)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(h)",
+              "reason": "The space complexity is determined by the maximum call stack depth h, which corresponds to the height of the tree."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n) time, O(h) space",
+          "gap": "None; every node must be visited at least once to determine the maximum depth."
+        },
+        "issues": []
+      }
+    },
+    "D": {
+      "time": "O(n)",
+      "space": "O(h)",
+      "usage": {
+        "promptTokenCount": 542,
+        "candidatesTokenCount": 231,
+        "totalTokenCount": 773,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 542
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The function visits each node in the binary tree exactly once during the recursive traversal."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(h)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(h)",
+              "reason": "The space complexity is determined by the maximum depth of the call stack, where h is the height of the tree."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "none"
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "recursion-depth-02",
+    "category": "recursion_depth_vs_space",
+    "ground_truth": {
+      "time": "O(2^n)",
+      "space": "O(n)"
+    },
+    "A": {
+      "time": "O(2^n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 82,
+        "candidatesTokenCount": 129,
+        "totalTokenCount": 211,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 82
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(2^n)$\n**Space Complexity:** $O(n)$\n\n**Justification:**\n* **Time Complexity:** Each function call branches into two additional calls (`fib(n-1)` and `fib(n-2)`), creating a binary recursion tree of depth $n$. The number of operations roughly doubles with each increment of $n$, leading to exponential time.\n* **Space Complexity:** The space complexity is determined by the maximum depth of the call stack during the recursion. The deepest path in the tree goes down to the base cases, taking $O(n)$ stack frames."
+    },
+    "B": {
+      "time": "O(2^n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 404,
+        "candidatesTokenCount": 295,
+        "totalTokenCount": 699,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 404
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(2^n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(2^n)",
+              "reason": "The recursive implementation makes two recursive calls for each call, leading to an exponential number of states."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The maximum depth of the recursive call stack is n."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "This naive recursive algorithm redundantly computes subproblems. Memoization or iterative dynamic programming can reduce time complexity to linear."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Naive recursive Fibonacci has exponential time complexity and will stack overflow or hang for moderately large n.",
+            "line": 3
+          }
+        ]
+      }
+    },
+    "C": {
+      "time": "O(2^n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 529,
+        "candidatesTokenCount": 301,
+        "totalTokenCount": 830,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 529
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(2^n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(2^n)",
+              "reason": "The function branches twice in each recursive step with a branching factor of 2, leading to an exponential number of calls."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The maximum depth of the call stack is n due to linear decrement in recursive calls."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "The naive recursive implementation recomputes subproblems repeatedly, which can be optimized using dynamic programming or memoization."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Naive recursive Fibonacci has exponential time complexity and is inefficient for large n.",
+            "line": 3
+          }
+        ]
+      }
+    },
+    "D": {
+      "time": "O(2^n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 529,
+        "candidatesTokenCount": 271,
+        "totalTokenCount": 800,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 529
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(2^n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(2^n)",
+              "reason": "The function branches twice per call without memoization, leading to a binary recursion tree of depth n."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The maximum call stack depth reaches n."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "Can be optimized to linear time using iterative dynamic programming or memoization."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Unmemoized recursive Fibonacci is exponentially slow for large n."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "sorting-hidden-01",
+    "category": "sorting_hidden_in_library_call",
+    "ground_truth": {
+      "time": "O(n log n)",
+      "space": "O(n)"
+    },
+    "A": {
+      "time": "O(n \\log n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 99,
+        "candidatesTokenCount": 152,
+        "totalTokenCount": 251,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 99
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(n \\log n)$  \n**Space Complexity:** $O(n)$ or $O(1)$ (depending on the sorting algorithm's implementation in Python's Timsort).\n\n**Justification:**\n- **Time:** Sorting the list takes $O(n \\log n)$ time, where $n$ is the number of elements in `nums`. The subsequent linear scan takes $O(n)$ time. The sorting step dominates.\n- **Space:** Python's `sorted()` function creates a new list of size $n$, requiring $O(n)$ auxiliary space (though in-place sorting would use $O(\\log n)$ to $O(n)$ stack space)."
+    },
+    "B": {
+      "time": "O(n log n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 427,
+        "candidatesTokenCount": 325,
+        "totalTokenCount": 752,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 427
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n log n)",
+          "confidence": "low",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n log n)",
+              "reason": "Sorting the array takes O(n log n) time."
+            },
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "Iterating through the sorted array takes linear time."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "low",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "Python's Timsort uses additional space for sorting depending on the implementation."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "Sorting takes O(n log n), whereas a hash set approach can achieve O(n) time complexity."
+        },
+        "issues": [
+          {
+            "severity": "info",
+            "message": "No structural facts provided, relying solely on code inspection.",
+            "line": 1
+          }
+        ]
+      }
+    },
+    "C": {
+      "time": "O(n log n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 611,
+        "candidatesTokenCount": 342,
+        "totalTokenCount": 953,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 611
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n log n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "lib:sorted@3",
+              "bound": "O(n log n)",
+              "reason": "Sorting the input list nums takes O(n log n) time using Timsort."
+            },
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "Iterating through the sorted list takes linear time in the worst case."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "lib:sorted@3",
+              "bound": "O(n)",
+              "reason": "Python's sorted() function allocates a new list of size n."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "Sorting takes O(n log n), whereas using a hash set can solve the duplicate detection problem in O(n) time."
+        },
+        "issues": [
+          {
+            "severity": "info",
+            "message": "Sorting-based duplicate detection is suboptimal compared to a hash set approach."
+          }
+        ]
+      }
+    },
+    "D": {
+      "time": "O(n log n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 611,
+        "candidatesTokenCount": 300,
+        "totalTokenCount": 911,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 611
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(n log n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "lib:sorted@3",
+              "bound": "O(n log n)",
+              "reason": "The sorted function dominates the time complexity using Timsort."
+            },
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "Linear scan of the sorted array for adjacent duplicates."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "lib:sorted@3",
+              "bound": "O(n)",
+              "reason": "Timsort requires O(n) auxiliary space for sorting."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "Sorting takes O(n log n) time, whereas a hash set approach can solve the problem in O(n) time and O(n) space."
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "sorting-hidden-02",
+    "category": "sorting_hidden_in_library_call",
+    "ground_truth": {
+      "time": "O(n log n)",
+      "space": "O(n)"
+    },
+    "A": {
+      "time": "O(N \\log N)",
+      "space": "O(N)",
+      "usage": {
+        "promptTokenCount": 178,
+        "candidatesTokenCount": 153,
+        "totalTokenCount": 331,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 178
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(N \\log N)$\n**Space Complexity:** $O(N)$\n\n**Justification:**\n* **Time Complexity:** The dominant operation is sorting the `intervals` array, which takes $O(N \\log N)$ time, where $N$ is the number of intervals. The subsequent linear scan of the array takes $O(N)$ time.\n* **Space Complexity:** In the worst-case scenario (no intervals overlap), the `out` array will store all $N$ intervals, requiring $O(N)$ additional space. (Note: ignoring the memory used by the sorting algorithm itself, which is typically $O(\\log N)$ or $O(N)$ depending on the engine)."
+    },
+    "B": {
+      "time": "O(n log n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 523,
+        "candidatesTokenCount": 349,
+        "totalTokenCount": 872,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 523
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n log n)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n log n)",
+              "reason": "Intervals array is sorted by start time using Array.prototype.sort, which dominates the time complexity."
+            },
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "A single linear scan is performed over the sorted intervals to merge overlapping ranges."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The output array 'out' can store up to n intervals in the worst case where no intervals overlap."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n log n)",
+          "gap": "None; sorting intervals requires O(n log n) time in the comparison-based model."
+        },
+        "issues": [
+          {
+            "severity": "warn",
+            "message": "Accessing intervals[0] without checking if the intervals array is empty could lead to a TypeError if input is empty."
+          }
+        ]
+      }
+    },
+    "C": {
+      "time": "O(n log n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 731,
+        "candidatesTokenCount": 300,
+        "totalTokenCount": 1031,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 731
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n log n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "lib:sort@2",
+              "bound": "O(n log n)",
+              "reason": "The input intervals array is sorted by start time using the built-in sort method."
+            },
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "A single linear scan through the sorted intervals array of size n."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The output array can store up to n intervals in the worst case where no intervals overlap."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n log n)",
+          "gap": "None. Sorting the intervals is necessary in the comparison-based model, and the subsequent merge is linear."
+        },
+        "issues": []
+      }
+    },
+    "D": {
+      "time": "O(n log n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 731,
+        "candidatesTokenCount": 282,
+        "totalTokenCount": 1013,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 731
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(n log n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "lib:sort@L2",
+              "bound": "O(n log n)",
+              "reason": "Sorting the intervals array dominates the time complexity."
+            },
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "A single linear scan through the sorted intervals array."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The output array stores the merged intervals, which in the worst case can be all of them."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n log n)",
+          "gap": "None. Sorting the elements is required in the general case."
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "straightforward-01",
+    "category": "straightforward_single_nested_loops",
+    "ground_truth": {
+      "time": "O(n)",
+      "space": "O(n)"
+    },
+    "A": {
+      "time": "O(N)",
+      "space": "O(N)",
+      "usage": {
+        "promptTokenCount": 106,
+        "candidatesTokenCount": 151,
+        "totalTokenCount": 257,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 106
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(N)$  \n**Space Complexity:** $O(N)$  \n\n**Justification:**  \n- **Time Complexity:** The code iterates through the list of numbers of size $N$ at most once. Dictionary lookups (`target - n in seen`) and insertions (`seen[n] = i`) take $O(1)$ average time. Thus, the total time complexity is linear, $O(N)$.  \n- **Space Complexity:** In the worst-case scenario (no pair is found until the end, or the pair is at the very end), the hash map `seen` stores every element and its index from the input list. This requires linear space, $O(N)$."
+    },
+    "B": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 436,
+        "candidatesTokenCount": 236,
+        "totalTokenCount": 672,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 436
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The loop iterates through the list of length n at most once, and dictionary lookups and insertions take O(1) average time."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The hash map 'seen' stores up to n elements in the worst case."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    },
+    "C": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 573,
+        "candidatesTokenCount": 231,
+        "totalTokenCount": 804,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 573
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The loop iterates over the array nums of size n at most once, performing constant time dictionary lookups and insertions."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The dictionary 'seen' stores up to n elements in the worst case."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    },
+    "D": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 573,
+        "candidatesTokenCount": 236,
+        "totalTokenCount": 809,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 573
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The loop iterates over the array nums of size n at most once, and dictionary lookups and insertions take O(1) average time."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The hash map seen can store up to n elements in the worst case."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "straightforward-02",
+    "category": "straightforward_single_nested_loops",
+    "ground_truth": {
+      "time": "O(n^2)",
+      "space": "O(1)"
+    },
+    "A": {
+      "time": "O(n^2)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 142,
+        "candidatesTokenCount": 143,
+        "totalTokenCount": 285,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 142
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(n^2)$\n**Space Complexity:** $O(1)$\n\n**Justification:**\n* **Time Complexity:** The code uses two nested loops to check every possible pair of elements in the array of size $n$. The outer loop runs $n$ times, and the inner loop runs roughly $n/2$ times on average, resulting in $O(n^2)$ comparisons in the worst case.\n* **Space/Auxiliary Complexity:** The algorithm only uses a constant amount of extra memory for variables ($i$, $j$) and allocates a new array of size 2 upon finding a solution, which requires $O(1)$ auxiliary space."
+    },
+    "B": {
+      "time": "O(n^2)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 478,
+        "candidatesTokenCount": 281,
+        "totalTokenCount": 759,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 478
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n^2)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n^2)",
+              "reason": "The code uses nested loops iterating over pairs of elements in the array nums of size n."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Only a constant amount of extra memory is used regardless of input size."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "Can be solved in linear time using a hash map."
+        },
+        "issues": [
+          {
+            "severity": "info",
+            "message": "Nested loop implementation results in O(n^2) time complexity.",
+            "line": 3
+          }
+        ]
+      }
+    },
+    "C": {
+      "time": "O(n^2)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 733,
+        "candidatesTokenCount": 316,
+        "totalTokenCount": 1049,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 733
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n^2)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "Outer loop runs up to n times."
+            },
+            {
+              "ref": "L2",
+              "bound": "O(n)",
+              "reason": "Inner loop runs up to n times for each iteration of the outer loop."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Only a constant number of primitive variables are used for indexing."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "Can be solved in linear time using a hash map to track complements."
+        },
+        "issues": [
+          {
+            "severity": "info",
+            "message": "The brute-force nested loop approach has a quadratic time complexity.",
+            "line": 3
+          }
+        ]
+      }
+    },
+    "D": {
+      "time": "O(n^2)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 733,
+        "candidatesTokenCount": 269,
+        "totalTokenCount": 1002,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 733
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(n^2)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "outer loop runs n times"
+            },
+            {
+              "ref": "L2",
+              "bound": "O(n)",
+              "reason": "inner loop runs up to n times for each outer iteration"
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "only a constant amount of extra memory is allocated for return values"
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": false,
+          "best_known": "O(n)",
+          "gap": "Can be improved to linear time using a hash map to store complements."
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "two-pointer-01",
+    "category": "two_pointer_converging",
+    "ground_truth": {
+      "time": "O(n)",
+      "space": "O(1)"
+    },
+    "A": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 183,
+        "candidatesTokenCount": 99,
+        "totalTokenCount": 282,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 183
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "- **Time Complexity:** $O(n)$ where $n$ is the length of the `height` array. The pointers `l` and `r` start at opposite ends and move toward each other, visiting each element at most once.\n- **Space Complexity:** $O(1)$ because only a few scalar variables (`l`, `r`, `left_max`, `right_max`, `water`) are used, requiring constant extra space regardless of the input size."
+    },
+    "B": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 534,
+        "candidatesTokenCount": 278,
+        "totalTokenCount": 812,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 534
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The two pointers l and r start at the ends of the array and move towards each other, visiting each element at most once."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Only a constant number of scalar variables are used for pointers and tracking max heights."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n) time and O(1) space",
+          "gap": "None"
+        },
+        "issues": [
+          {
+            "severity": "info",
+            "message": "No structural facts provided; analysis is based on manual code inspection."
+          }
+        ]
+      }
+    },
+    "C": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 671,
+        "candidatesTokenCount": 227,
+        "totalTokenCount": 898,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 671
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The while loop pointers l and r converge monotonically towards each other, executing at most n iterations in total."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Only a few scalar variables are maintained regardless of the input size."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    },
+    "D": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 671,
+        "candidatesTokenCount": 233,
+        "totalTokenCount": 904,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 671
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The while loop pointers l and r converge monotonically towards each other, visiting each element of the input array at most once."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Only a constant number of scalar variables are used for tracking pointers and max heights."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "two-pointer-02",
+    "category": "two_pointer_converging",
+    "ground_truth": {
+      "time": "O(n)",
+      "space": "O(1)"
+    },
+    "A": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 157,
+        "candidatesTokenCount": 119,
+        "totalTokenCount": 276,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 157
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** $O(n)$  \n**Space Complexity:** $O(1)$\n\n**Justification:**\n* **Time Complexity:** The two pointers (`l` and `r`) start at opposite ends and move toward each other, meeting after at most $n$ iterations (where $n$ is the size of the `height` vector). Each iteration performs a constant number of operations.\n* **Space Complexity:** Only a few scalar variables (`l`, `r`, `best`, `area`) are used, requiring constant extra space independent of the input size."
+    },
+    "B": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 502,
+        "candidatesTokenCount": 243,
+        "totalTokenCount": 745,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 502
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The while loop uses two pointers starting at opposite ends that move monotonically towards each other, resulting in linear time complexity proportional to the size of the height vector."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "medium",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Only a few primitive variables are used for pointers and storing the maximum area, requiring constant extra space."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    },
+    "C": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 639,
+        "candidatesTokenCount": 227,
+        "totalTokenCount": 866,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 639
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The while loop pointers l and r converge monotonically towards each other, executing at most n iterations."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Only a few scalar variables are used for pointers and storing the maximum area."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    },
+    "D": {
+      "time": "O(n)",
+      "space": "O(1)",
+      "usage": {
+        "promptTokenCount": 639,
+        "candidatesTokenCount": 231,
+        "totalTokenCount": 870,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 639
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "escalated": false,
+      "raw": {
+        "time": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "L1",
+              "bound": "O(n)",
+              "reason": "The pointers l and r start at opposite ends and converge monotonically towards each other, executing the loop at most n times."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(1)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(1)",
+              "reason": "Only a constant number of scalar variables are used for pointers and metrics."
+            }
+          ],
+          "excludes_output": true
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(n)",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    }
+  },
+  {
+    "id": "union-find-01",
+    "category": "union_find_path_compression",
+    "ground_truth": {
+      "time": "O(n α(n))",
+      "space": "O(n)"
+    },
+    "A": {
+      "time": "O(n)",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 229,
+        "candidatesTokenCount": 184,
+        "totalTokenCount": 413,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 229
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": "**Time Complexity:** \n* `__init__`: $O(n)$\n* `find`: $O(\\alpha(n))$ per operation (amortized)\n* `union`: $O(\\alpha(n))$ per operation (amortized)\n\n*(where $\\alpha$ is the inverse Ackermann function, which is effectively constant for all practical inputs)*\n\n**Space Complexity:** $O(n)$\n\n**Justification:** \n* **Time:** The initialization creates arrays of size $n$, taking $O(n)$ time. Both `find` and `union` utilize path compression and union by rank, bounding the tree height and resulting in nearly constant time per operation, denoted by the inverse Ackermann function $\\alpha(n)$.\n* **Space:** The `parent` and `rank` arrays each store $n$ elements, requiring $O(n)$ auxiliary space."
+    },
+    "B": {
+      "time": "O(alpha(n))",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 596,
+        "candidatesTokenCount": 286,
+        "totalTokenCount": 882,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 596
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(alpha(n))",
+          "confidence": "low",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(alpha(n))",
+              "reason": "Find and union operations with path compression and union by rank run in nearly constant amortized time, represented by the inverse Ackermann function alpha(n)."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "The parent and rank arrays store elements proportional to the input size n."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(alpha(n)) per operation",
+          "gap": "None"
+        },
+        "issues": [
+          {
+            "severity": "info",
+            "message": "No structural facts provided, analysis relies on standard disjoint-set data structure properties."
+          }
+        ]
+      }
+    },
+    "C": {
+      "time": "O(alpha(n))",
+      "space": "O(n)",
+      "usage": {
+        "promptTokenCount": 736,
+        "candidatesTokenCount": 238,
+        "totalTokenCount": 974,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 736
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "raw": {
+        "time": {
+          "big_o": "O(alpha(n))",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(alpha(n))",
+              "reason": "Standard Disjoint Set Union with path compression and union by rank operates in inverse Ackermann time per operation."
+            }
+          ]
+        },
+        "space": {
+          "big_o": "O(n)",
+          "confidence": "high",
+          "blocks": [
+            {
+              "ref": "text",
+              "bound": "O(n)",
+              "reason": "Parent and rank arrays scale linearly with the number of elements n."
+            }
+          ],
+          "excludes_output": false
+        },
+        "optimality": {
+          "is_optimal": true,
+          "best_known": "O(alpha(n)) per operation",
+          "gap": "None"
+        },
+        "issues": []
+      }
+    },
+    "D": {
+      "error": "gemini 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+    }
+  }
+]
